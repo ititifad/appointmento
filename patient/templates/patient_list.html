@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Resources Module</title>
+</head>
+<body>
+
+    <h2>Human Resources Module » People Management</h2>
+
+  <div class="row">
+
+    <div class="col s10">
+
+  <p>
+    <a class="waves-effect waves-light btn" href="{% url 'patient_add' %}">Add Patient</a>
+    
+  </p>
+
+  <table border="1" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Location</th>
+        <th>Gender</th>
+        <th>Hospital</th>
+        <th>Specialist</th>
+        <th>Appointment Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in appointment %}
+        <tr>
+          <td><a href="">{{ person.get_full_name }}</a></td>
+          <td>{{ person.first_name }}</td>
+          <td>{{ person.last_name }}</td>
+          <td>{{ person.location }}</td>
+          <td>{{ person.gender }}</td>
+          <td>{{ person.hospital.name }}</td>
+          <td>{{ person.specialist.name }}</td>
+          <td>{{ person.app_date }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No person in the database. <a href="{% url 'patient_add' %}">Add the first person</a>.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    </div>
+  </div>
+
+    
+</body>
+</html>
+  

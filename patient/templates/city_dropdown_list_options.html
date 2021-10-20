@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<option value="">---------</option>
+{% for specialist in specialists %}
+<option value="{{ specialist.pk }}">{{ specialist.name }}</option>
+{% endfor %}
+
+{% endblock %}
